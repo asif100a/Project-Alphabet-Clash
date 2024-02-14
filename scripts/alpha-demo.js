@@ -10,7 +10,14 @@
 // };
 
 
+function continueGame() {
+    // Step-1: Generate a random alphabet 
+    const alphabet = getARendomAlphabet();
+    console.log('Random Alphabet:', alphabet);
+};
+
 function play() {
     hideElementById('home-screen');
     showElementById('play-ground');
+    continueGame();
 };
