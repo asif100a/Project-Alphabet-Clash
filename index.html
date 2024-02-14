@@ -16,23 +16,30 @@
 
 <body class="font-poppins">
     <!-- ==================================== Main Section Started =================================== -->
-    <main class="min-h-screen bg-[#1E1E1E] bg-[url(images/background.png)]  bg-no-repeat bg-center">
+    <main class="min-h-screen bg-[#1E1E1E] bg-[url(images/background.png)] h-[1224px] bg-no-repeat bg-center">
         <!-- ----------------- Section 1 [Home Screen] ------------------ -->
-        <section class="home min-h-screen text-[#FFFFFF] flex flex-col justify-center items-center border-2 hidden">
-            <div class="flex flex-col items-center gap-12">
+        <section id="home-screen" class="min-h-screen text-[#FFFFFF] flex flex-col justify-center items-center ">
+            <div class="flex flex-col items-center justify-center gap-24">
                 <h1 class="text-8xl font-normal font-anton uppercase">ALPHABET CLASH</h1>
-                <p class="font-poppins text-2xl font-medium lowercase">Unleash Your Keyboard Kung Fu : Press “Enter” to
+                <p class="font-poppins text-xl font-medium lowercase">Unleash Your Keyboard Kung Fu : Press “Enter” to
                     Play</p>
-                <button class="btn bg-white text-black">Play Now</button>
+                <button onclick="play()" class="btn bg-white text-black">Play Now</button>
             </div>
         </section>
 
         <!-- ------------------- Section 2 [Play Ground] ------------------ -->
-        <section class="play-ground">
-            <div>
+        <section id="play-ground" class="hidden">
+            <div class="flex flex-col justify-center items-center gap-24 pt-24">
                 <!-- Notice Screen -->
-                <div class="artboard artboard-horizontal phone-6 border-[16px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3]">
-                    1024×320
+                <div
+                    class="artboard artboard-horizontal phone-6 border-[16px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3]">
+                    <div class="flex justify-center">
+                        <p class="bg-[#2F2941] px-6 pb-4 rounded-b-xl">Don't watch keyboard while playing...</p>
+                    </div>
+
+                    <div class="min-h-full flex justify-center items-center">
+                        <p class="text-black text-9xl font-semibold">Y</p>
+                    </div>
                 </div>
 
                 <!-- Keyboard -->
@@ -73,15 +80,40 @@
                 </div>
 
                 <!-- Life & Score -->
+                <div class="flex w-3/4 justify-between mt-12">
+                    <!-- Life -->
+                    <button class="btn rounded-full bg-[#894189] text-white font-semibold">
+                        Life
+                        <img src="images/heart.svg" alt="Heart">
+                        <span>1</span>
+                    </button>
 
+                    <!-- Score -->
+                    <button class="btn rounded-full bg-[#360490] text-white font-semibold">
+                        Score
+                        <img src="images/dolor.svg" alt="Dolor">
+                        <span>1</span>
+                    </button>
+                </div>
             </div>
         </section>
 
         <!-- -------------------- Section 3 [Score] ------------------------ -->
-        <section class="score">
-
+        <section class="score min-h-screen flex justify-center items-center hidden">
+            <div class="text-white text-center space-y-8 bg-gradient-to-r from-[#FFFFFF66] to-[#FFFFFF1A] p-4 rounded-2xl">
+                <p class="text-7xl font-medium">
+                    <span class="font-bold">Score:</span>
+                    <span>0</span>
+                </p>
+                <button class="btn text-2xl font-semibold bg-white text-black border-none">Play Again</button>
+                <p class="text-xl font-medium">Practice will make you Pro</p>
+            </div>
         </section>
     </main>
+
+    <!-- Script Links -->
+    <script src="scripts/utility.js"></script>
+    <script src="scripts/alpha-demo.js"></script>
 </body>
 
 </html>
