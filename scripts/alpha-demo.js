@@ -10,9 +10,20 @@
 // };
 
 
+const audio = new Audio();
+
+let isGamePlayOn = false;
+
+const artBoard = document.getElementById('art-board');
+
+const modalBox = document.getElementById('modal-box');
+
+
 function handleKeyboardButtonPress(event) {
+    if(isGamePlayOn == false) return;
+
     const gamerPressed = event.key;
-    // console.log('Gamer pressed:', gamerPressed);
+    console.log('Gamer pressed:', gamerPressed);
 
     // Stop the Game if gamer pressed 'Esc'
     if(gamerPressed === 'Escape') {
@@ -27,6 +38,10 @@ function handleKeyboardButtonPress(event) {
 
     // get matched Alphabet
     if(gamerPressed === lowerCaseAlphabet) {
+        console.log('You got a point.')
+
+        audio.src = "../audio-file/Right-key.mp3"
+        audio.play();
 
         const defaultScore = getTextElementValueById('default-score');
         const updatedScore = defaultScore + 1;
@@ -51,8 +66,18 @@ function handleKeyboardButtonPress(event) {
         continueGame();
     }
     else{
+        console.log('You lose one life.');
+
+        audio.src = '../audio-file/Wrong-key.mp3';
+        audio.play();
+
         const defaultLife = getTextElementValueById('default-life');
         const updatedLife = defaultLife - 1;
+
+        const updatedLifePercentage = (updatedLife / 5) * 100;
+
+        artBoard.style.background = `linear-gradient(#FFFFFFB3 ${updatedLifePercentage}%, red)`;
+
         setTextElementValueById('default-life', updatedLife);
 
         if(updatedLife === 0){
@@ -90,6 +115,7 @@ function continueGame() {
 };
 
 function play() {
+    // console.log('Play button clicked.')
     // Hide everything Show only the Playground
     hideElementById('home-screen');
     hideElementById('final-score');
@@ -98,6 +124,8 @@ function play() {
     // Reset score and life
     setTextElementValueById('default-life', 5);
     setTextElementValueById('default-score', 0);
+
+    isGamePlayOn = true;
 
     continueGame();
 };
@@ -114,4 +142,27 @@ function gameOver(){
     // Clear the last selected Alphabet
     const displayAlphabet = getElementTextById('display-alphabet');
     removeBackgroundById(displayAlphabet);
+
+    isGamePlayOn = false;
+
+    artBoard.style.background = 'linear-gradient(#FFFFFFB3 100%,red)';
 };
+
+
+function modalBoxOpen(event) {
+    if(event.clientY < 10) {
+        modalBox.style.display = 'flex';
+    }
+};
+
+function modalBoxClose() {
+    modalBox.style.display = 'none';
+};
+
+document.body.onmousemove = modalBoxOpen;
+
+document.addEventListener('keydown', function(event){
+    if(event.key == 'Escape') {
+        modalBoxClose();
+    }
+});

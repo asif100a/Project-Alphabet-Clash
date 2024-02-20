@@ -31,10 +31,11 @@
         <section id="play-ground" class="hidden">
             <div class="flex flex-col justify-center items-center gap-14 pt-14">
                 <!-- Notice Screen -->
-                <div
+                <div id="art-board"
                     class="artboard artboard-horizontal phone-6 border-[16px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3]">
                     <div class="flex justify-center">
-                        <p class="bg-[#2F2941] px-6 pb-4 rounded-b-xl text-white">Don't watch keyboard while playing...</p>
+                        <p class="bg-[#2F2941] px-6 pb-4 rounded-b-xl text-white">Don't watch keyboard while playing...
+                        </p>
                     </div>
 
                     <div class="min-h-full flex justify-center items-center">
@@ -100,17 +101,35 @@
 
         <!-- -------------------- Section 3 [Score] ------------------------ -->
         <section id="final-score" class="min-h-screen flex justify-center items-center hidden">
-            <div class="text-white text-center space-y-8 bg-gradient-to-r from-[#FFFFFF66] to-[#FFFFFF1A] p-4 rounded-2xl">
+            <div
+                class="text-white text-center space-y-8 bg-gradient-to-r from-[#FFFFFF66] to-[#FFFFFF1A] p-4 rounded-2xl">
                 <p class="text-3xl font-medium">Game over!</p>
 
                 <p class="text-7xl font-medium">
                     <span class="font-bold">Score:</span>
                     <span id="last-score">0</span>
                 </p>
-                <button onclick="play()" class="btn text-2xl font-semibold bg-white text-black border-none">Play Again</button>
+                <button onclick="play()" class="btn text-2xl font-semibold bg-white text-black border-none">Play
+                    Again</button>
                 <p class="text-xl font-medium">Practice will make you Pro</p>
             </div>
         </section>
+
+
+        <!-- ========[Modal Section]======= -->
+        <section id="modal-box"
+            class="fixed w-full h-full top-0 bg-black bg-opacity-40 flex justify-center items-center">
+            <div class="bg-purple-700 text-white px-4 py-8 rounded w-1/3 relative">
+                <button onclick="modalBoxClose()"
+                    class="absolute top-2 right-2 rounded-full border-2 border-solid border-white w-9 h-9 text-xl flex justify-center items-center hover:bg-white hover:bg-opacity-30">
+                    x
+                </button>
+                <h2 class="mb-4 text-2xl">Hello!</h2>
+                <p class="text-lg">Press <span class="text-red-300">'Esc'</span> or click on the <span
+                        class="text-red-300">'x'</span> button</p>
+            </div>
+        </section>
+
     </main>
 
     <!-- Script Links -->
