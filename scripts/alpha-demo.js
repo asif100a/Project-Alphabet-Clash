@@ -40,7 +40,7 @@ function handleKeyboardButtonPress(event) {
     if(gamerPressed === lowerCaseAlphabet) {
         console.log('You got a point.')
 
-        audio.src = "../audio-file/Right-key.mp3"
+        audio.src = "audio-file/Right-key.mp3"
         audio.play();
 
         const defaultScore = getTextElementValueById('default-score');
@@ -68,7 +68,7 @@ function handleKeyboardButtonPress(event) {
     else{
         console.log('You lose one life.');
 
-        audio.src = '../audio-file/Wrong-key.mp3';
+        audio.src = 'audio-file/Wrong-key.mp3';
         audio.play();
 
         const defaultLife = getTextElementValueById('default-life');
